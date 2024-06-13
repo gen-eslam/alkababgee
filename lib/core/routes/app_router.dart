@@ -6,7 +6,8 @@ import 'package:alkababgee/presentation/auth/login/logic/cubit/login_cubit.dart'
 import 'package:alkababgee/presentation/auth/login/view/login_screen.dart';
 import 'package:alkababgee/presentation/auth/register/logic/cubit/register_cubit.dart';
 import 'package:alkababgee/presentation/auth/register/view/register_screen.dart';
-import 'package:alkababgee/presentation/details/details_screen.dart';
+import 'package:alkababgee/presentation/deliver_home/deliver_home_screen.dart';
+import 'package:alkababgee/presentation/details/food_details_screen.dart';
 import 'package:alkababgee/presentation/home/view/home_screen.dart';
 import 'package:alkababgee/presentation/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -38,14 +39,18 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
         );
-         case Routes.foodDetailsScreen:
+      case Routes.foodDetailsScreen:
         return MaterialPageRoute(
-          builder: (_) =>  FoodDetailsScreen(foodModel: arguments as FoodModel,),
+          builder: (_) => FoodDetailsScreen(
+            foodModel: arguments as FoodModel,
+          ),
         );
-      // case Routes.accountScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const MyAccountScreen(),
-      //   );
+      case Routes.deliverHomeScreen:
+        return MaterialPageRoute(
+          builder: (_) => DeliverHomeScreen(
+            foodModel: arguments as FoodModel,
+          ),
+        );
       case Routes.signUpScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

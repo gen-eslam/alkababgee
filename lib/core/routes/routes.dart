@@ -6,6 +6,8 @@ abstract class Routes {
   static const String homeScreen = '/homeScreen';
   static const String forgetScreen = "/forgetScreen";
   static const String foodDetailsScreen = "/FoodDetailsScreen";
+  //DeliverHomeScreen
+  static const String deliverHomeScreen = "/deliverHomeScreen";
   static const String accountScreen = "/accountScreen";
   static const String paymentScreen = "/paymentScreen";
   static const String vehiclesScreen = "/vehiclesScreen";
