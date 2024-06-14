@@ -1,5 +1,6 @@
-
 import 'package:alkababgee/core/constant/string_manager.dart';
+import 'package:alkababgee/core/helper/extensions.dart';
+import 'package:alkababgee/core/routes/routes.dart';
 import 'package:alkababgee/core/theme/colors_manager.dart';
 import 'package:alkababgee/core/theme/text_style_manager.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,9 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.settingScreen);
+            },
             icon: Icon(
               Icons.menu,
               color: ColorsManager.white,

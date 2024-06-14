@@ -152,7 +152,7 @@ class FoodDetailsScreen extends StatelessWidget {
                                     ),
                                     divisions: 10,
                                     onChange: (p0) {
-                                      print(p0);
+                                      foodModel.spicy = p0;
                                     },
                                   ),
                                 ],

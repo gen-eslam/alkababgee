@@ -1,22 +1,27 @@
 import 'dart:developer';
 
 import 'package:alkababgee/core/constant/keys.dart';
+import 'package:alkababgee/core/helper/extensions.dart';
+import 'package:alkababgee/core/routes/routes.dart';
 import 'package:alkababgee/core/services/cache_service.dart';
-import 'package:alkababgee/model/auth/user_model.dart';
-import 'package:alkababgee/presentation/payment/model/payment_model.dart';
+import 'package:alkababgee/firebase/firebase_firestore_service.dart';
+import 'package:alkababgee/firebase/tables_name.dart';
+import 'package:alkababgee/model/food/food_model.dart';
+import 'package:alkababgee/model/order/order_model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
-import '../../../../firebase/firebase_firestore_service.dart';
-import '../../../../firebase/tables_name.dart';
 import '../../model/amount_model.dart';
 import '../../model/item_list_model.dart';
 
 class PaymentPage extends StatelessWidget {
-  final int money;
+  final FoodModel foodModel;
   const PaymentPage({
     super.key,
-    required this.money,
+    required this.foodModel,
   });
 
   @override
@@ -38,23 +43,26 @@ class PaymentPage extends StatelessWidget {
         note: "Contact us for any questions on your order.",
         onSuccess: (Map params) {
           log("onSuccess: $params");
-          FirebaseFireStoreService.getOneData<UserModel>(
-                  tableName: TablesName.users,
-                  pram: 'uid',
-                  pramValue: CacheService.getDataString(key: Keys.userId),
-                  fromJson: UserModel.fromJson)
-              .then((value) async {
-            await FirebaseFireStoreService.addData(
-              tableName: TablesName.payment,
-              data: PaymentModel(
-                email: value!.email,
-                name: value.name,
-                userUid: value.uid,
-                price: money.toString(),
-              ).toJson(),
-            );
-          });
-          Navigator.pop(context);
+          FirebaseFireStoreService.addData(
+            tableName: TablesName.order,
+            data: OrderModel(
+              name: foodModel.name,
+              image: foodModel.image,
+              price: foodModel.price,
+              quantity: foodModel.quantity,
+              total: foodModel.price * foodModel.quantity,
+              uid: CacheService.getDataString(key: Keys.userId)!,
+            ).toJson(),
+          );
+          context.pushNamedAndRemoveUntil(
+            Routes.homeScreen,
+            predicate: (route) => false,
+          );
+          QuickAlert.show(
+            context: context,
+            type: QuickAlertType.success,
+            text: "Your order has been placed successfully",
+          );
         },
         onError: (error) {
           log("onError: $error");
@@ -92,9 +100,9 @@ class PaymentPage extends StatelessWidget {
       details: Details(
         shipping: "0",
         shippingDiscount: 0,
-        subtotal: "$money",
+        subtotal: "${foodModel.price * foodModel.quantity}",
       ),
-      total: "$money",
+      total: "${foodModel.price * foodModel.quantity}",
     );
     return (amountModel: amountModel, itemList: itemList);
   }

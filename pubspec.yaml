@@ -44,6 +44,10 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_paypal_payment: ^1.0.6
   google_maps_flutter: ^2.5.3
+  location: ^6.0.2
+  dartz: ^0.10.1
+  web: ^0.3.0
+  quickalert: ^1.1.0
 
 dev_dependencies:
   flutter_test:

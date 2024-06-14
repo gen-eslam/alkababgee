@@ -1,5 +1,6 @@
 class FoodModel {
   String name;
+  num spicy;
   String image;
   num price;
   num rating;
@@ -15,7 +16,8 @@ class FoodModel {
       required this.rating,
       required this.description,
       required this.category,
-      this.quantity = 0,
+      this.quantity = 1,
+      this.spicy = 0,
       required this.mins});
 
   Map<String, dynamic> toJson() {
@@ -30,7 +32,7 @@ class FoodModel {
     return data;
   }
 
-  factory FoodModel.fromJson(Map<String, dynamic> json) {
+  factory FoodModel.fromJson(Map<String, dynamic> json, [String? id]) {
     return FoodModel(
       name: json['name'],
       image: json['image'],

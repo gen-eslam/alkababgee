@@ -10,6 +10,8 @@ abstract class Routes {
   static const String deliverHomeScreen = "/deliverHomeScreen";
   static const String accountScreen = "/accountScreen";
   static const String paymentScreen = "/paymentScreen";
+  //setting
+  static const String settingScreen = "/settingScreen";
   static const String vehiclesScreen = "/vehiclesScreen";
   static const String addVehiclesScreen = "/addVehiclesScreen";
   static const String ticketScreen = "/ticketScreen";

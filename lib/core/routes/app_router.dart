@@ -8,7 +8,10 @@ import 'package:alkababgee/presentation/auth/register/logic/cubit/register_cubit
 import 'package:alkababgee/presentation/auth/register/view/register_screen.dart';
 import 'package:alkababgee/presentation/deliver_home/deliver_home_screen.dart';
 import 'package:alkababgee/presentation/details/food_details_screen.dart';
+import 'package:alkababgee/presentation/home/cubit/home_cubit.dart';
 import 'package:alkababgee/presentation/home/view/home_screen.dart';
+import 'package:alkababgee/presentation/payment/view/pages/payment_ui.dart';
+import 'package:alkababgee/presentation/setting/setting_view.dart';
 import 'package:alkababgee/presentation/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +40,10 @@ abstract class AppRouter {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit()..getData(),
+            child: const HomeScreen(),
+          ),
         );
       case Routes.foodDetailsScreen:
         return MaterialPageRoute(
@@ -65,12 +71,16 @@ abstract class AppRouter {
             child: const ForgetPasswordScreen(),
           ),
         );
-      // case Routes.paymentScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => PaymentPage(
-      //       garageModel: arguments as GarageModel,
-      //     ),
-      //   );
+      case Routes.paymentScreen:
+        return MaterialPageRoute(
+          builder: (_) => PaymentPage(
+            foodModel: arguments as FoodModel,
+          ),
+        );
+      case Routes.settingScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SettingView(),
+        );
       // case Routes.vehiclesScreen:
       //   return MaterialPageRoute(
       //     builder: (_) => BlocProvider(

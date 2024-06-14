@@ -1,7 +1,10 @@
+import 'package:alkababgee/core/fake_data/food_data.dart';
 import 'package:alkababgee/core/routes/app_router.dart';
 import 'package:alkababgee/core/routes/routes.dart';
 import 'package:alkababgee/core/services/bloc_observer.dart';
 import 'package:alkababgee/core/services/cache_service.dart';
+import 'package:alkababgee/firebase/firebase_firestore_service.dart';
+import 'package:alkababgee/firebase/tables_name.dart';
 import 'package:alkababgee/firebase_options.dart';
 import 'package:alkababgee/presentation/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -16,6 +19,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(const MyApp());
 }
 
