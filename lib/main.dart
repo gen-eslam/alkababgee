@@ -1,4 +1,5 @@
 import 'package:alkababgee/core/fake_data/food_data.dart';
+import 'package:alkababgee/core/fake_data/table_data.dart';
 import 'package:alkababgee/core/routes/app_router.dart';
 import 'package:alkababgee/core/routes/routes.dart';
 import 'package:alkababgee/core/services/bloc_observer.dart';

@@ -247,7 +247,11 @@ class FoodDetailsScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: CustomElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pushNamed(
+                        Routes.tablesViewScreen,
+                      );
+                    },
                     child: CustomText(
                       text: "Book a Table",
                       color: ColorsManager.white,

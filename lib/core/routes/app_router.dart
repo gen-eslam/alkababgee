@@ -13,6 +13,7 @@ import 'package:alkababgee/presentation/home/view/home_screen.dart';
 import 'package:alkababgee/presentation/payment/view/pages/payment_ui.dart';
 import 'package:alkababgee/presentation/setting/setting_view.dart';
 import 'package:alkababgee/presentation/splash/splash_screen.dart';
+import 'package:alkababgee/presentation/tables/tables_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -81,12 +82,10 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const SettingView(),
         );
-      // case Routes.vehiclesScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //         create: (context) => VehiclesCubit()..filterVehicles(),
-      //         child: const VehiclesPage()),
-      //   );
+      case Routes.tablesViewScreen:
+        return MaterialPageRoute(
+          builder: (_) => const TablesView(),
+        );
       // case Routes.addVehiclesScreen:
       //   return MaterialPageRoute(
       //     builder: (_) => const AddVehiclesScreen(),
