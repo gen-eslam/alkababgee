@@ -1,5 +1,3 @@
-import 'package:alkababgee/core/constant/images_manager.dart';
-import 'package:alkababgee/core/fake_data/food_data.dart';
 import 'package:alkababgee/core/helper/extensions.dart';
 import 'package:alkababgee/core/routes/routes.dart';
 import 'package:alkababgee/core/theme/colors_manager.dart';

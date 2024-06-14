@@ -1,16 +1,12 @@
-import 'package:alkababgee/core/constant/space_Manager.dart';
-import 'package:alkababgee/core/constant/string_manager.dart';
 import 'package:alkababgee/core/helper/extensions.dart';
 import 'package:alkababgee/core/theme/colors_manager.dart';
 import 'package:alkababgee/core/theme/text_style_manager.dart';
 import 'package:alkababgee/core/widgets/custom_text.dart';
-import 'package:alkababgee/core/widgets/custom_text_form_field.dart';
 import 'package:alkababgee/presentation/home/view/widget/category_list.dart';
 import 'package:alkababgee/presentation/home/view/widget/coustom_search_bar.dart';
 import 'package:alkababgee/presentation/home/view/widget/custom_app_bar.dart';
 import 'package:alkababgee/presentation/home/view/widget/custom_grid_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -28,14 +24,17 @@ class HomeScreen extends StatelessWidget {
           child: CustomScrollView(
             physics: const NeverScrollableScrollPhysics(),
             slivers: [
-              const SliverToBoxAdapter(child: CustomAppBar()),
+              const SliverToBoxAdapter(
+                child: CustomAppBar(),
+              ),
               const SliverToBoxAdapter(
                 child: CustomSearchBar(),
               ),
               SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                      vertical: context.deviceHeight * 0.02),
+                    vertical: context.deviceHeight * 0.02,
+                  ),
                   child: CustomText(
                     text: "Categories",
                     textAlign: TextAlign.start,

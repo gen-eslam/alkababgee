@@ -1,10 +1,8 @@
 import 'package:alkababgee/firebase/firebase_firestore_service.dart';
 import 'package:alkababgee/firebase/tables_name.dart';
 import 'package:alkababgee/model/food/food_model.dart';
-import 'package:alkababgee/presentation/details/food_details_screen.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 
 part 'home_state.dart';
 
