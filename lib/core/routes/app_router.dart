@@ -1,5 +1,6 @@
 import 'package:alkababgee/core/routes/routes.dart';
 import 'package:alkababgee/model/food/food_model.dart';
+import 'package:alkababgee/model/table/table_model.dart';
 import 'package:alkababgee/presentation/auth/forget_and_reset/cubit/forget_password_cubit.dart';
 import 'package:alkababgee/presentation/auth/forget_and_reset/view/forget_password_screen.dart';
 import 'package:alkababgee/presentation/auth/login/logic/cubit/login_cubit.dart';
@@ -13,6 +14,8 @@ import 'package:alkababgee/presentation/home/view/home_screen.dart';
 import 'package:alkababgee/presentation/payment/view/pages/payment_ui.dart';
 import 'package:alkababgee/presentation/setting/setting_view.dart';
 import 'package:alkababgee/presentation/splash/splash_screen.dart';
+import 'package:alkababgee/presentation/tables/booking_table_cubit/booking_table_cubit.dart';
+import 'package:alkababgee/presentation/tables/booking_table_screen.dart';
 import 'package:alkababgee/presentation/tables/tables_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,11 +26,6 @@ abstract class AppRouter {
     final arguments = settings.arguments;
 
     switch (settings.name) {
-      // case Routes.onBoardingScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const OnBoardingScreen(),
-      //   );
-
       case Routes.splashScreen:
         return MaterialPageRoute(
           builder: (_) => const SplashScreen(),
@@ -86,28 +84,15 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const TablesView(),
         );
-      // case Routes.addVehiclesScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const AddVehiclesScreen(),
-      //   );
-      // case Routes.ticketScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => TicketCubit()..getTicket(),
-      //       child: const TicketPage(),
-      //     ),
-      //   );
-      // case Routes.otpScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const OtpScreen(text: "romancawy12@gmail.com"),
-      //   );
-      // case Routes.signUpScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => getIt<SignupCubit>(),
-      //       child: const SignupScreen(),
-      //     ),
-      //   );
+      case Routes.bookingTableScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => BookingTableCubit()..getUser(),
+            child: BookingTableScreen(
+              tableModel: arguments as TableModel,
+            ),
+          ),
+        );
 
       default:
         return MaterialPageRoute(

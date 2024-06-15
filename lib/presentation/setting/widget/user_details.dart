@@ -34,10 +34,13 @@ class _UserDetailsState extends State<UserDetails> {
       ),
       child: FutureBuilder(
           future: FirebaseFireStoreService.getOneData<UserModel>(
-              tableName: TablesName.users,
-              pram: 'uid',
-              pramValue: CacheService.getDataString(key: Keys.userId),
-              fromJson: UserModel.fromJson),
+            tableName: TablesName.users,
+            pram: 'uid',
+            pramValue: CacheService.getDataString(
+              key: Keys.userId,
+            ),
+            fromJson: UserModel.fromJson,
+          ),
           builder: (context, snapShot) {
             if (snapShot.hasData) {
               return Column(

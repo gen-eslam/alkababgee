@@ -13,4 +13,6 @@ abstract class Routes {
   static const String settingScreen = "/settingScreen";
   //tablesViewScreen
   static const String tablesViewScreen = "/tablesViewScreen";
+  //BookingTableScreen
+  static const String bookingTableScreen = "/bookingTableScreen";
 }

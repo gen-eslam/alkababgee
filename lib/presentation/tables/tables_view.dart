@@ -1,4 +1,5 @@
 import 'package:alkababgee/core/helper/extensions.dart';
+import 'package:alkababgee/core/routes/routes.dart';
 import 'package:alkababgee/core/theme/colors_manager.dart';
 import 'package:alkababgee/core/theme/text_style_manager.dart';
 import 'package:alkababgee/core/widgets/custom_text.dart';
@@ -55,7 +56,10 @@ class _TablesViewState extends State<TablesView> {
                   ),
                   child: ListTile(
                     onTap: () {
-                      
+                      context.pushNamed(
+                        Routes.bookingTableScreen,
+                        arguments: snapshot.data![index],
+                      );
                     },
                     leading: const Icon(
                       Icons.table_bar,
@@ -82,7 +86,9 @@ class _TablesViewState extends State<TablesView> {
             );
           } else {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: ColorsManager.deepRed,
+              ),
             );
           }
         },
