@@ -72,7 +72,7 @@ class _TablesViewState extends State<TablesView> {
                     ),
                     subtitle: CustomText(
                       textAlign: TextAlign.start,
-                      text: 'seets: ${snapshot.data![index].capacity}',
+                      text: 'seats: ${snapshot.data![index].capacity}',
                       style: TextStyleManager.textStyle18w400,
                     ),
                     trailing: CustomText(
