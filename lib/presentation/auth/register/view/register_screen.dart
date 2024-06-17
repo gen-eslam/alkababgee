@@ -30,7 +30,10 @@ class RegisterScreen extends StatelessWidget {
               context.pushNamed(Routes.homeScreen);
             });
           } else if (state is RegisterError) {
-            customSnackBar(text: state.message, colorState: ColorState.failure);
+            ScaffoldMessenger.of(context).showSnackBar(
+              customSnackBar(
+                  text: state.message, colorState: ColorState.failure),
+            );
           }
         },
         child: SafeArea(

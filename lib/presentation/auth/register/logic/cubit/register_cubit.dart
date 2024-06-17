@@ -22,7 +22,9 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController nameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  UserModel user = UserModel();
+  UserModel user = UserModel(
+  
+  );
 
   void register() async {
     emit(RegisterLoading());

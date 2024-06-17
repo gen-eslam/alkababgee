@@ -1,6 +1,6 @@
 class FoodModel {
   String name;
-  num spicy;
+  num spicy; //? double int = int x = 10 
   String image;
   num price;
   num rating;

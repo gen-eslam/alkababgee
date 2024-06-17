@@ -4,11 +4,10 @@ import 'package:alkababgee/core/theme/text_style_manager.dart';
 import 'package:alkababgee/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-
 SnackBar customSnackBar(
     {required String text,
     required ColorState colorState,
-    SnackBarBehavior behavior = SnackBarBehavior.fixed}) {
+    SnackBarBehavior behavior = SnackBarBehavior.floating}) {
   return SnackBar(
     duration: const Duration(
       seconds: 2,

@@ -23,7 +23,9 @@ class LoginScreen extends StatelessWidget {
           if (state is LoginSuccess) {
             context.pushNamed(Routes.homeScreen);
           } else if (state is LoginError) {
-            customSnackBar(text: state.error, colorState: ColorState.failure);
+            ScaffoldMessenger.of(context).showSnackBar(
+              customSnackBar(text: state.error, colorState: ColorState.failure),
+            );
           }
         },
         child: SafeArea(

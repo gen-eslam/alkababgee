@@ -1,5 +1,7 @@
 class UserModel {
   String? uid, name, email, docId;
+  
+  
   UserModel({
     this.uid,
     this.name,
@@ -26,3 +28,4 @@ class UserModel {
     return "uid: $uid, userName: $name, email: $email, docId: $docId";
   }
 }
+
